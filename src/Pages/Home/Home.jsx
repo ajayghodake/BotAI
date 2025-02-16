@@ -1,4 +1,4 @@
-import { Box, Stack, Typography } from "@mui/material"; 
+import { Box, Stack, Typography } from "@mui/material";
 import { useState, useEffect, useRef } from "react";
 import { useOutletContext } from "react-router-dom";
 import { ThemeContext } from "../../Theme/ThemeContext";
@@ -50,8 +50,8 @@ const Home = () => {
 
   return (
     <Stack
-    height={'100vh'}
-      justifyContent={'space-between'}
+      height={"100vh"}
+      justifyContent={"space-between"}
       sx={{
         "@media (max-width : 767px)": {
           background:
@@ -103,7 +103,12 @@ const Home = () => {
         clearChat={() => setChat([])}
       />
 
-      <FeedbackModal open={showModal} updateChat={setChat} chatId={selectedChatId} handleClose={()=>setShowModal(false)}/>
+      <FeedbackModal
+        open={showModal}
+        updateChat={setChat}
+        chatId={selectedChatId}
+        handleClose={() => setShowModal(false)}
+      />
     </Stack>
   );
 };
