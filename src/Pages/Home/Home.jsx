@@ -1,4 +1,4 @@
-import { Box, Stack, Typography } from "@mui/material";
+import {  Stack } from "@mui/material";
 import { useState, useEffect, useRef } from "react";
 import { useOutletContext } from "react-router-dom";
 import { ThemeContext } from "../../Theme/ThemeContext";
@@ -13,7 +13,7 @@ import ChatInput from "../../Components/ChatInput/ChatInput";
 
 const Home = () => {
   const [showModal, setShowModal] = useState(false);
-  const [chatId, setChatID] = useState(1);
+  const [chatId, setChatId] = useState(1);
   const [selectedChatId, setSelectedChatId] = useState(null);
   const [scrollToBottom, setScrollToBottom] = useState(false);
   const { chat, setChat } = useOutletContext();
@@ -45,7 +45,7 @@ const Home = () => {
         id: chatId + 1,
       },
     ]);
-    setChat((prev) => prev + 2);
+    setChatId((prev) => prev + 2);
   };
   
   useEffect(()=>{
