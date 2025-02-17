@@ -65,7 +65,7 @@ const Home = () => {
     >
       <Navbar />
 
-      {chat.length == 0 && <InitChat generateResponse={generateResponse} />}
+      {chat.length === 0 && <InitChat generateResponse={generateResponse} />}
 
       {chat.length > 0 && (
         <Stack
