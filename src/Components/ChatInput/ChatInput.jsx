@@ -15,9 +15,22 @@ const ChatInput = ({ generateResponse, setScroll, chat, clearChat }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    generateResponse(input);
     setInput("");
     setScroll((prev) => !prev);
   };
+
+  const handleSave = () => {
+    const chatHistory = JSON.parse(localStorage.getItem('chat')) || [];
+    const date = new Date();
+    localStorage.setItem('chat', JSON.stringify([{chat: chat, datetime: date}, ...chatHistory]));
+    clearChat();
+    setShowSnackbar(true);
+  }
+
+  useEffect(()=> {
+    inputRef.current.focus();
+  }, [])
 
   return (
     <Box flexShrink={0} px={{ xs: 0.5, md: 3 }} pb={{ xs: 1, md: 3 }}>
@@ -57,6 +70,7 @@ const ChatInput = ({ generateResponse, setScroll, chat, clearChat }) => {
           </Button>
           <Button
             variant="outlined"
+            onClick={handleSave}
             disabled={!chat.length > 0}
             sx={{
               fontSize: { xs: 12, md: 16 },

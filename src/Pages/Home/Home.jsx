@@ -47,6 +47,10 @@ const Home = () => {
     ]);
     setChat((prev) => prev + 2);
   };
+  
+  useEffect(()=>{
+    listRef.current?.lastElementChild?.scrollIntoView();
+  }, [scrollToBottom])
 
   return (
     <Stack
@@ -61,7 +65,7 @@ const Home = () => {
     >
       <Navbar />
 
-      {chat.length === 0 && <InitChat geneteateResponse={generateResponse} />}
+      {chat.length == 0 && <InitChat generateResponse={generateResponse} />}
 
       {chat.length > 0 && (
         <Stack

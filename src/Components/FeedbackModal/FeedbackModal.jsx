@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import FeedbackIcon from "@mui/icons-material/Feedback";
 import CloseIcon from "@mui/icons-material/Close";
-import { Close } from "@mui/icons-material";
+
 
 const FeedbackModal = ({ open, handleClose, chatId, updateChat }) => {
   const [input, setInput] = useState("");
@@ -20,7 +20,7 @@ const FeedbackModal = ({ open, handleClose, chatId, updateChat }) => {
     left: "50%",
     transform: "translate(-50%, -50%)",
     width: "95%",
-    bgColor: "primary.bgtheme",
+    bgcolor: "primary.bgtheme",
     boxShadow: 24,
     p: { xs: 2, md: 3 },
     maxWidth: 720,
@@ -32,7 +32,7 @@ const FeedbackModal = ({ open, handleClose, chatId, updateChat }) => {
 
     updateChat((prev) =>
       prev.map((item) => {
-        if (item.id === chatId) {
+        if (item.id == chatId) {
           return { ...item, feedback: input };
         } else {
           return { ...item };
@@ -80,12 +80,13 @@ const FeedbackModal = ({ open, handleClose, chatId, updateChat }) => {
         >
           <TextField
             multiline
+            value={input}
             rows={6}
             sx={{ width: 1 }}
             onChange={(e) => setInput(e.target.value)}
             required
           />
-          <Button>Submit</Button>
+          <Button variant="contained" type="submit">Submit</Button>
         </Box>
       </Box>
     </Modal>
