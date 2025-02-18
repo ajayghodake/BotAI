@@ -67,7 +67,7 @@ const ChatingCard = ({
         <Typography fontSize={{ xs: 14, md: 16 }}>{details.text}</Typography>
 
         <Stack direction={"row"} gap={2} alignItems={"center"} mt={1}>
-          <Typography fontSize={{ xs: 8, md: 12 }} color={"text.secondary"}>
+          <Typography fontSize={{ xs: 10, md: 16 }} color={"text.secondary"}>
             {format(details.time, "hh:mm a")}
           </Typography>
 
